@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>House Price Prediction</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: #f4f6f8;
+      margin: 0;
+      padding: 0;
+    }
+
+    .container {
+      max-width: 700px;
+      margin: 40px auto;
+      padding: 30px;
+      background-color: white;
+      border-radius: 12px;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    }
+
+    h1 {
+  text-align: center;
+  color: #333;
+  margin-bottom: 25px;
+  border-bottom: 3px solid #00796b;  /* Added underline */
+  padding-bottom: 10px;
+  display: inline-block;
+}
+
+    form label {
+      display: block;
+      margin: 12px 0 4px;
+      font-weight: bold;
+      color: #555;
+    }
+
+    form input[type="number"] {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 8px;
+      border-radius: 6px;
+      border: 1px solid #ccc;
+      box-sizing: border-box;
+      font-size: 16px;
+    }
+
+    button {
+      width: 100%;
+      padding: 12px;
+      font-size: 16px;
+      background-color: #007bff;
+      color: white;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      margin-top: 20px;
+      transition: background-color 0.3s ease;
+    }
+
+    button:hover {
+      background-color: #0056b3;
+    }
+
+    .result {
+      margin-top: 20px;
+      padding: 12px;
+      background-color: #eaf7ea;
+      border-left: 5px solid #28a745;
+      font-size: 18px;
+      color: #2d572c;
+      border-radius: 6px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>House Price Prediction</h1>
+    <form action="/predict" method="POST">
+      <label for="UNNAMED:0">UNNAMED:0</label>
+      <input type="number" step="any" name="UNNAMED:0" required>
+
+      <label for="CRIM">CRIM</label>
+      <input type="number" step="any" name="CRIM" required>
+
+      <label for="ZN">ZN</label>
+      <input type="number" step="any" name="ZN" required>
+
+      <label for="INDUS">INDUS</label>
+      <input type="number" step="any" name="INDUS" required>
+
+      <label for="CHAS">CHAS (0 or 1)</label>
+      <input type="number" step="any" name="CHAS" min="0" max="1" required>
+
+      <label for="NOX">NOX</label>
+      <input type="number" step="any" name="NOX" required>
+
+      <label for="RM">RM</label>
+      <input type="number" step="any" name="RM" required>
+
+      <label for="AGE">AGE</label>
+      <input type="number" step="any" name="AGE" required>
+
+      <label for="DIS">DIS</label>
+      <input type="number" step="any" name="DIS" required>
+
+      <label for="RAD">RAD</label>
+      <input type="number" step="any" name="RAD" required>
+
+      <label for="TAX">TAX</label>
+      <input type="number" step="any" name="TAX" required>
+
+      <label for="PTRATIO">PTRATIO</label>
+      <input type="number" step="any" name="PTRATIO" required>
+
+      <label for="BLACK">BLACK</label>
+      <input type="number" step="any" name="BLACK" required>
+
+      <label for="LSTAT">LSTAT</label>
+      <input type="number" step="any" name="LSTAT" required>
+
+      <button type="submit">Predict</button>
+    </form>
+
+    {% if prediction_text %}
+    <div class="result">{{ prediction_text }}</div>
+    {% endif %}
+  </div>
+</body>
+</html>
